@@ -13,10 +13,10 @@ and works to build a simple mind model on your Mac or PC
 This is the Entry level, a work in progress,
 and works to build a SIMPLE MIND model on your Mac or PC
 
-Choose One and Install
+**Choose One and Install
 a. Real Estate Agent Build
 b. Loan Officer Build
-c. Small Business Build
+c. Small Business Build**
 
 3. treetrunkV00-0XX.zip  (Intermediate)
 This is the full C-Suite level, a work in progress,
