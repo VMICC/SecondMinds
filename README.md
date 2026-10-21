@@ -13,10 +13,15 @@ and works to build a simple mind model on your Mac or PC
 This is the Entry level, a work in progress,
 and works to build a SIMPLE MIND model on your Mac or PC
 
-**Choose One and Install
-a. Real Estate Agent Build
-b. Loan Officer Build
-c. Small Business Build**
+**Choose One and Install ## Latest Release: Version 3.11
+
+Download the latest Simple Second Mind packages:
+
+- [Real Estate Agent (RE)](Simple-Second-Mind-Full-v3.11-RE.zip)
+- [Business (BIZ)](Simple-Second-Mind-Full-v3.11-BIZ.zip)
+- [Loan Officer (LO)](Simple-Second-Mind-Full-v3.11-LO.zip)
+
+Previous versions remain available in this repository.
 
 3. treetrunkV00-0XX.zip  (Pro Level)
 This is the full C-Suite level, a work in progress,
