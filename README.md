@@ -24,4 +24,4 @@ and works to build a FULL Office for Real Estate on your Mac or PC
 
 Contact Jeffrey @ VMICC for help with assisted setup as needed
 
-**Heavy Versions** of the **Simple-Second-Mind-Full-Version** are avialable for Purchase
+**Heavy Versions** of the **Simple-Second-Mind-Full-Version** are available for Purchase
