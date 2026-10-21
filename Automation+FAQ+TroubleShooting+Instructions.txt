@@ -1,0 +1,32 @@
+STARTHERE: SIMPLE MIND AGENT
+
+1. LINK YOUR FOLDER TO GITHUB (ONE TIME)
+
+Description:
+This connects the folder on your computer to your GitHub account, so your work has a safe home online. You only do this once, when the folder is brand new.
+
+Instructions:
+Open your terminal inside the folder. Type these commands one at a time, in order. On the second line, use your own GitHub repo address where it says <your-github-url>.
+
+git init
+git remote add origin https://github.com/<PASTE-REMAINDER-HERE>
+git add .
+git commit -m "First upload"
+git push -u origin main
+
+After the push, your folder and GitHub are linked. From then on, backups can run on their own.
+
+
+FAQ ERROR 
+
+A. SCRIPT HANGING OR FREEZING?
+
+Description:
+That usually means Git is waiting for a password or sign-in, but the background script cannot ask you for it.
+
+Instructions:
+Run this command once to save your login on this computer:
+
+git config --global credential.helper store
+
+Then run a push one time by hand. Git will ask for your sign-in once and save it for the next runs.
