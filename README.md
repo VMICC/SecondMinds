@@ -4,6 +4,9 @@ Models for Second Minds or Simple Brains
 Click here to DL all Files
 https://github.com/VMICC/SecondMinds/releases
 
+CLI Prompts: Connect Local Folder to Github or Stuck GitHub Re Initialize
+https://github.com/VMICC/SecondMinds/blob/main/Automation%2BFAQ%2BTroubleShooting%2BInstructions.txt
+
 ---------------------------------------------
 1. Simple-Second-Mind-Lite.zip  (Beginner)
 This is the bare-bones level that has been tested,
