@@ -1,0 +1,15 @@
+STARTHERE: SIMPLE MIND AGENT
+
+LINK YOUR FOLDER TO GITHUB (ONE TIME)
+
+Description:
+This connects the folder on your computer to your GitHub account, so your work has a safe home online. You only do this once, when the folder is brand new.
+
+Instructions:
+Open your terminal inside the folder. Type these commands one at a time, in order. On the second line, use your own GitHub repo address where it says <your-github-url>.
+
+git init
+git remote add origin <your-github-url>
+git add .
+git commit -m "First upload"
+git push -u origin main

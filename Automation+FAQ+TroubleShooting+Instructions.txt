@@ -6,10 +6,13 @@ Description:
 This connects the folder on your computer to your GitHub account, so your work has a safe home online. You only do this once, when the folder is brand new.
 
 Instructions:
+
+Initialization:
+Connect REPO at GITHUB to your Local Folder (Run Once)
 Open your terminal inside the folder. Type these commands one at a time, in order. On the second line, use your own GitHub repo address where it says <your-github-url>.
 
 git init
-git remote add origin https://github.com/<PASTE-REMAINDER-HERE>
+git remote add origin https://github.com/<PASTE-REMAINDER-HERE> REMAINDER    
 git add .
 git commit -m "First upload"
 git push -u origin main
