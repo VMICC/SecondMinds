@@ -1,0 +1,98 @@
+Muse Daily GitHub Upload Job
+===========================
+
+CRON DEFINITION
+---------------
+Job name: <YOURINFOHERE_JOB_NAME>
+Schedule: Once daily at <YOURINFOHERE_TIME>
+Timezone: <YOURINFOHERE_TIMEZONE>
+
+JOB BODY
+--------
+Run the following upload-only Bash script on my Mac.
+
+#!/bin/bash
+# Upload local files to GitHub. Never download or merge.
+set -euo pipefail
+
+PROJECT="<YOURINFOHERE_LOCAL_FOLDER>"
+REMOTE="https://github.com/<YOURINFOHERE_GITHUB_USERNAME>/<YOURINFOHERE_REPOSITORY>.git"
+PRIVATE_FOLDER="<YOURINFOHERE_PRIVATE_FOLDER>"
+
+cd "$PROJECT" || {
+    echo "Project folder not found." >&2
+    exit 1
+}
+
+[[ -d .git ]] || {
+    echo "Not a Git repository." >&2
+    exit 1
+}
+
+[[ "$(git branch --show-current)" == "main" ]] || {
+    echo "Not on main branch." >&2
+    exit 1
+}
+
+[[ "$(git remote get-url origin)" == "$REMOTE" ]] || {
+    echo "Unexpected GitHub remote. Stopping." >&2
+    exit 1
+}
+
+# Protect private files.
+git check-ignore -q "$PRIVATE_FOLDER/" || {
+    echo "$PRIVATE_FOLDER/ is not ignored. Stopping." >&2
+    exit 1
+}
+
+if [[ -n "$(git ls-files -- "$PRIVATE_FOLDER" "$PRIVATE_FOLDER/**")" ]]; then
+    echo "$PRIVATE_FOLDER/ has tracked files. Stopping." >&2
+    exit 1
+fi
+
+# Stage additions, modifications, and deletions.
+git add -A
+
+# Commit local changes.
+if ! git diff --cached --quiet; then
+    git commit -m "Mac upload: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+else
+    echo "No new local changes."
+fi
+
+# Upload only. Never pull, merge, rebase, or force-push.
+git push -u origin main
+
+echo "Upload complete."
+
+REQUIRED INFORMATION
+--------------------
+Replace these placeholders before creating the job:
+
+<YOURINFOHERE_JOB_NAME>         Name of the automated task.
+<YOURINFOHERE_TIME>             Daily execution time.
+<YOURINFOHERE_TIMEZONE>         Your local timezone.
+<YOURINFOHERE_LOCAL_FOLDER>     Full path to your Mac project folder.
+<YOURINFOHERE_GITHUB_USERNAME>  Your GitHub username.
+<YOURINFOHERE_REPOSITORY>       Your private GitHub repository name.
+<YOURINFOHERE_PRIVATE_FOLDER>   Folder excluded from GitHub uploads.
+
+EXECUTION RULES
+---------------
+- Run once per day.
+- Upload from Mac to GitHub only.
+- Never download or overwrite local files.
+- Never upload the designated private folder.
+- Never force-push.
+- Stop and report errors.
+- Confirm successful execution only after GitHub accepts the push.
+
+If Muse cannot execute Bash commands through its connected Mac tools,
+use an authorized macOS LaunchAgent to run the script. Do not claim
+that the cron job executed the script unless execution is verified.
+
+NOTE
+----
+This is a job definition and script, not an activated automation.
+Muse must have an actual execution mechanism, such as a LaunchAgent,
+for it to synchronize files on the Mac.
